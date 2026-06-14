@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kostas Marougkas — AI Enablement & Business Operations</title>
+<title>Kostas Marougkas — Business Operations & AI Automation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --navy: #0f1923;
@@ -30,10 +31,8 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    cursor: none;
   }
 
-  /* ── CUSTOM CURSOR ── */
   .cursor {
     width: 10px; height: 10px;
     background: var(--amber);
@@ -43,6 +42,7 @@
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
   }
+
   .cursor-ring {
     width: 36px; height: 36px;
     border: 1.5px solid rgba(232,162,69,0.4);
@@ -52,10 +52,10 @@
     transform: translate(-50%, -50%);
     transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
   }
+
   .cursor.hover { width: 18px; height: 18px; background: var(--amber-light); }
   .cursor-ring.hover { width: 54px; height: 54px; border-color: rgba(232,162,69,0.7); }
 
-  /* ── NOISE OVERLAY ── */
   body::before {
     content: '';
     position: fixed; inset: 0;
@@ -64,24 +64,26 @@
     pointer-events: none; z-index: 1000;
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 500;
     padding: 1.4rem 3rem;
     display: flex; justify-content: space-between; align-items: center;
     transition: background 0.4s ease, backdrop-filter 0.4s ease;
   }
+
   nav.scrolled {
     background: rgba(15,25,35,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
   }
+
   .nav-logo {
     font-family: 'Fraunces', serif;
     font-size: 1.1rem; font-weight: 400;
     color: var(--cream); text-decoration: none;
     letter-spacing: 0.02em;
   }
+
   .nav-logo span { color: var(--amber); }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
@@ -91,7 +93,6 @@
   }
   .nav-links a:hover { color: var(--amber); }
 
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: flex; align-items: center;
@@ -114,7 +115,7 @@
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
   }
 
-  .hero-content { position: relative; z-index: 1; max-width: 780px; }
+  .hero-content { position: relative; z-index: 1; max-width: 820px; }
 
   .hero-eyebrow {
     font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em;
@@ -123,10 +124,8 @@
     display: flex; align-items: center; gap: 0.8rem;
     opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
   }
-  .hero-eyebrow::before {
-    content: ''; display: block;
-    width: 32px; height: 1px; background: var(--amber);
-  }
+
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--amber); }
 
   h1 {
     font-family: 'Fraunces', serif;
@@ -147,17 +146,14 @@
 
   .hero-tagline {
     font-size: 1rem; line-height: 1.75;
-    color: var(--cream-dim); max-width: 520px;
-    margin-bottom: 3rem;
+    color: var(--cream-dim); max-width: 600px;
+    margin-bottom: 2.4rem;
     opacity: 0; animation: fadeUp 0.9s ease 0.7s forwards;
     border-left: 2px solid var(--amber);
     padding-left: 1.2rem;
   }
 
-  .hero-btns {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.9s ease 0.85s forwards;
-  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s ease 0.85s forwards; }
 
   .btn {
     padding: 0.75rem 1.8rem;
@@ -165,19 +161,44 @@
     font-size: 0.85rem; font-weight: 500;
     letter-spacing: 0.06em; text-transform: uppercase;
     text-decoration: none; border-radius: 3px;
-    transition: all 0.25s ease; cursor: none;
+    transition: all 0.25s ease;
     display: inline-block;
   }
-  .btn-primary {
-    background: var(--amber); color: var(--navy);
-    border: 1px solid var(--amber);
-  }
+
+  .btn-primary { background: var(--amber); color: var(--navy); border: 1px solid var(--amber); }
   .btn-primary:hover { background: var(--amber-light); border-color: var(--amber-light); transform: translateY(-2px); }
-  .btn-ghost {
-    background: transparent; color: var(--cream);
-    border: 1px solid var(--glass-border);
-  }
+  .btn-ghost { background: transparent; color: var(--cream); border: 1px solid var(--glass-border); }
   .btn-ghost:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+
+  .impact-strip {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin-top: 2.5rem;
+    opacity: 0; animation: fadeUp 0.9s ease 1s forwards;
+  }
+
+  .impact-pill {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    padding: 0.9rem 1.1rem;
+    min-width: 140px;
+  }
+
+  .impact-pill strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    color: var(--amber-light);
+    font-weight: 400;
+  }
+
+  .impact-pill span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--cream-dim);
+    margin-top: 0.2rem;
+    line-height: 1.4;
+  }
 
   .hero-scroll-hint {
     position: absolute; bottom: 2.5rem; left: 50%;
@@ -185,27 +206,21 @@
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
     opacity: 0; animation: fadeIn 1s ease 1.5s forwards;
   }
-  .hero-scroll-hint span {
-    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--cream-dim);
-  }
-  .scroll-line {
-    width: 1px; height: 48px; background: linear-gradient(to bottom, var(--amber), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
 
-  /* ── SECTIONS ── */
+  .hero-scroll-hint span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dim); }
+  .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--amber), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+
   section { padding: 7rem 3rem; }
+
   .section-label {
     font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--amber);
     margin-bottom: 0.8rem;
     display: flex; align-items: center; gap: 0.8rem;
   }
-  .section-label::before {
-    content: ''; display: block;
-    width: 24px; height: 1px; background: var(--amber);
-  }
+
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--amber); }
+
   .section-title {
     font-family: 'Fraunces', serif;
     font-size: clamp(2rem, 4vw, 3rem);
@@ -213,14 +228,15 @@
     color: var(--white); margin-bottom: 1rem;
   }
   .section-title em { font-style: italic; color: var(--amber-light); }
+
   .section-intro {
     font-size: 1rem; line-height: 1.8;
-    color: var(--cream-dim); max-width: 560px;
+    color: var(--cream-dim); max-width: 600px;
     margin-bottom: 4rem;
   }
 
-  /* ── STORIES ── */
   #stories { background: var(--navy-mid); }
+
   .stories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -237,6 +253,7 @@
     transition: background 0.3s ease;
     position: relative; overflow: hidden;
   }
+
   .story-card::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0;
@@ -245,6 +262,7 @@
     transform: scaleX(0); transform-origin: left;
     transition: transform 0.4s ease;
   }
+
   .story-card:hover { background: var(--navy-light); }
   .story-card:hover::before { transform: scaleX(1); }
 
@@ -269,14 +287,13 @@
   }
 
   .story-impact {
-    font-size: 0.8rem; font-weight: 500;
+    font-size: 0.82rem; font-weight: 500;
     color: var(--amber); margin-bottom: 1.2rem;
     font-style: italic;
   }
 
-  .story-tools {
-    display: flex; flex-wrap: wrap; gap: 0.5rem;
-  }
+  .story-tools { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
   .tool-tag {
     font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
     text-transform: uppercase; padding: 0.3rem 0.7rem;
@@ -286,11 +303,7 @@
   }
   .story-card:hover .tool-tag { border-color: rgba(232,162,69,0.3); color: var(--cream); }
 
-  /* ── PHILOSOPHY ── */
-  #philosophy {
-    background: var(--navy);
-    position: relative; overflow: hidden;
-  }
+  #philosophy { background: var(--navy); position: relative; overflow: hidden; }
   #philosophy::before {
     content: '';
     position: absolute; top: -200px; right: -200px;
@@ -306,13 +319,9 @@
     max-width: 1100px;
   }
 
-  .philosophy-text {
-    font-size: 1.05rem; line-height: 1.9;
-    color: var(--cream-dim);
-  }
+  .philosophy-text { font-size: 1.05rem; line-height: 1.9; color: var(--cream-dim); }
   .philosophy-text p { margin-bottom: 1.5rem; }
   .philosophy-text strong { color: var(--cream); font-weight: 500; }
-
   .philosophy-right { padding-top: 1rem; }
 
   .cert-block {
@@ -321,17 +330,12 @@
     border-radius: 4px; padding: 2rem;
     margin-bottom: 1.5rem;
   }
-  .cert-label {
-    font-size: 0.7rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--amber);
-    margin-bottom: 0.4rem;
-  }
-  .cert-name {
-    font-family: 'Fraunces', serif;
-    font-size: 1rem; font-weight: 400; color: var(--white);
-  }
+
+  .cert-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
+  .cert-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; color: var(--white); }
 
   .values-list { margin-top: 2rem; }
+
   .value-item {
     display: flex; align-items: flex-start; gap: 1rem;
     padding: 1rem 0;
@@ -339,23 +343,12 @@
     font-size: 0.9rem; color: var(--cream-dim); line-height: 1.5;
   }
   .value-item:last-child { border-bottom: none; }
-  .value-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--amber); flex-shrink: 0; margin-top: 0.45rem;
-  }
+  .value-item strong { color: var(--cream); font-weight: 500; }
+  .value-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 0.45rem; }
 
-  /* ── LEARNING ── */
   #learning { background: var(--navy-mid); }
-  .learning-intro {
-    font-family: 'Fraunces', serif;
-    font-size: 1.3rem; font-style: italic;
-    color: var(--cream-dim); margin-bottom: 3rem;
-    max-width: 500px; line-height: 1.6;
-  }
-
-  .learning-grid {
-    display: flex; flex-wrap: wrap; gap: 0.75rem;
-  }
+  .learning-intro { font-family: 'Fraunces', serif; font-size: 1.3rem; font-style: italic; color: var(--cream-dim); margin-bottom: 3rem; max-width: 500px; line-height: 1.6; }
+  .learning-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
   .learning-tag {
     padding: 0.8rem 1.4rem;
@@ -367,24 +360,18 @@
     transition: all 0.3s ease;
     position: relative; overflow: hidden;
   }
+
   .learning-tag::before {
     content: '';
     position: absolute; inset: 0;
     background: linear-gradient(135deg, rgba(232,162,69,0.1), transparent);
     opacity: 0; transition: opacity 0.3s;
   }
-  .learning-tag:hover {
-    border-color: var(--amber);
-    color: var(--amber-light);
-    transform: translateY(-3px);
-  }
+
+  .learning-tag:hover { border-color: var(--amber); color: var(--amber-light); transform: translateY(-3px); }
   .learning-tag:hover::before { opacity: 1; }
 
-  /* ── ABOUT ── */
-  #about {
-    background: var(--navy);
-    display: flex; align-items: center;
-  }
+  #about { background: var(--navy); display: flex; align-items: center; }
 
   .about-layout {
     display: grid;
@@ -401,48 +388,15 @@
   }
   .about-quote em { font-style: italic; color: var(--amber-light); }
 
-  .about-body {
-    font-size: 0.95rem; line-height: 1.85;
-    color: var(--cream-dim);
-  }
+  .about-body { font-size: 0.95rem; line-height: 1.85; color: var(--cream-dim); }
   .about-body p { margin-bottom: 1.2rem; }
 
-  .skills-panel {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 6px; padding: 2rem;
-  }
-  .skills-panel h4 {
-    font-family: 'Fraunces', serif;
-    font-size: 1rem; font-weight: 400;
-    color: var(--white); margin-bottom: 1.5rem;
-  }
-  .skill-row {
-    margin-bottom: 1.2rem;
-  }
-  .skill-label {
-    font-size: 0.78rem; letter-spacing: 0.06em;
-    color: var(--cream-dim); margin-bottom: 0.4rem;
-    display: flex; justify-content: space-between;
-  }
-  .skill-bar {
-    height: 2px; background: var(--glass-border);
-    border-radius: 1px; overflow: hidden;
-  }
-  .skill-fill {
-    height: 100%; background: linear-gradient(90deg, var(--amber), var(--amber-light));
-    border-radius: 1px; width: 0;
-    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  .skills-panel { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 6px; padding: 2rem; }
+  .skills-panel h4 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; color: var(--white); margin-bottom: 1.5rem; }
 
-  /* ── CONTACT ── */
-  #contact {
-    background: var(--navy-mid);
-    text-align: center;
-    padding: 6rem 3rem;
-  }
-
+  #contact { background: var(--navy-mid); text-align: center; padding: 6rem 3rem; }
   .contact-inner { max-width: 600px; margin: 0 auto; }
+
   .contact-title {
     font-family: 'Fraunces', serif;
     font-size: clamp(2.2rem, 5vw, 3.5rem);
@@ -450,16 +404,9 @@
     line-height: 1.15; margin-bottom: 1.2rem;
   }
   .contact-title em { font-style: italic; color: var(--amber-light); }
-  .contact-sub {
-    font-size: 0.95rem; color: var(--cream-dim);
-    line-height: 1.7; margin-bottom: 2.5rem;
-  }
+  .contact-sub { font-size: 0.95rem; color: var(--cream-dim); line-height: 1.7; margin-bottom: 2.5rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-  .contact-links {
-    display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
-  }
-
-  /* ── FOOTER ── */
   footer {
     padding: 2rem 3rem;
     border-top: 1px solid var(--glass-border);
@@ -468,33 +415,30 @@
   }
   footer a { color: var(--amber); text-decoration: none; }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
   @keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
+
   @keyframes scrollPulse {
     0%, 100% { opacity: 0.4; transform: scaleY(1); }
     50% { opacity: 1; transform: scaleY(1.1); }
   }
 
-  .reveal {
-    opacity: 0; transform: translateY(32px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 1.2rem 1.5rem; }
     .nav-links { gap: 1.5rem; }
     section { padding: 5rem 1.5rem; }
     #hero { padding: 7rem 1.5rem 4rem; }
-    .philosophy-layout,
-    .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .philosophy-layout, .about-layout { grid-template-columns: 1fr; gap: 3rem; }
     .philosophy-right { padding-top: 0; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
@@ -503,16 +447,22 @@
     .nav-links { display: none; }
     .stories-grid { grid-template-columns: 1fr; gap: 1px; }
     .hero-btns { flex-direction: column; }
+    .impact-strip { flex-direction: column; }
     .btn { text-align: center; }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .cursor, .cursor-ring { display: none; }
+    .btn { cursor: pointer; }
   }
 </style>
 </head>
+
 <body>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">K<span>.</span>Marougkas</a>
   <ul class="nav-links">
@@ -524,113 +474,100 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
+
   <div class="hero-content">
-    <p class="hero-eyebrow">AI Enablement & Business Operations</p>
+    <p class="hero-eyebrow">Business Operations · AI Automation · Commercial Excellence</p>
     <h1>Konstantinos<br><em>Marougkas</em></h1>
-    <p class="hero-subtitle">Business Operations · AI Automation · Process Transformation</p>
+    <p class="hero-subtitle">I turn inefficient workflows into scalable business solutions.</p>
     <p class="hero-tagline">
-      I help companies and people work smarter — by bringing the right AI tools, the right processes, and the right mindset to the table.
+      Engineering mindset, commercial experience, and hands-on AI automation — focused on reducing manual work, improving decision-making, and helping teams operate better.
     </p>
+
     <div class="hero-btns">
       <a href="#stories" class="btn btn-primary">See My Work</a>
       <a href="#about" class="btn btn-ghost">About Me</a>
       <a href="#contact" class="btn btn-ghost">Let's Talk</a>
     </div>
+
+    <div class="impact-strip">
+      <div class="impact-pill"><strong>98%</strong><span>pricing update effort reduced</span></div>
+      <div class="impact-pill"><strong>90%+</strong><span>tender review time reduced</span></div>
+      <div class="impact-pill"><strong>13%</strong><span>project cost reduction enabled</span></div>
+      <div class="impact-pill"><strong>€300k+</strong><span>annual revenue growth supported</span></div>
+    </div>
   </div>
+
   <div class="hero-scroll-hint">
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- STORIES -->
 <section id="stories">
   <div class="section-label">Real Business Impact</div>
-  <h2 class="section-title reveal">The story, <em>not the stats</em></h2>
+  <h2 class="section-title reveal">Business problems, <em>fixed practically</em></h2>
   <p class="section-intro reveal">
-    Most inefficiencies aren't technology problems — they're process and people problems. My work starts there, and ends with solutions teams actually use.
+    I focus on the messy middle between people, processes, and technology — where small operational changes can create major business impact.
   </p>
 
   <div class="stories-grid">
-
     <div class="story-card reveal">
       <div class="story-number">01</div>
       <h3 class="story-title">The Tender That Used to Take All Morning</h3>
       <p class="story-text">Sales teams were spending hours every day manually reviewing tenders — reading, filtering, and summarising opportunities one by one. Time that should have been spent selling.</p>
-      <p class="story-impact">↳ Built a Copilot-integrated AI agent that filters and prepares tender summaries automatically. The team got their mornings back saving 95% of the time needed.</p>
-      <div class="story-tools">
-        <span class="tool-tag">Microsoft Copilot</span>
-        <span class="tool-tag">AI Agent Design</span>
-        <span class="tool-tag">Prompt Engineering</span>
-      </div>
+      <p class="story-impact">↳ Built a Copilot-integrated AI workflow that filters opportunities and prepares tender summaries automatically, reducing review time by over 90%.</p>
+      <div class="story-tools"><span class="tool-tag">Microsoft Copilot</span><span class="tool-tag">AI Agent Design</span><span class="tool-tag">Prompt Engineering</span></div>
     </div>
 
     <div class="story-card reveal">
       <div class="story-number">02</div>
       <h3 class="story-title">The Price List That Took a Week</h3>
       <p class="story-text">Every pricing update meant days of manual comparison, validation, and reformatting — a task that created bottlenecks and errors across the business.</p>
-      <p class="story-impact">↳ Automated the entire process using Excel Macros and Power Query. What took a week now takes 30 minutes — and the data is cleaner.</p>
-      <div class="story-tools">
-        <span class="tool-tag">Excel Macros</span>
-        <span class="tool-tag">Power Query</span>
-        <span class="tool-tag">VBA</span>
-      </div>
+      <p class="story-impact">↳ Automated the process using Excel Macros and Power Query. What took up to a week now takes around 30 minutes — with cleaner data and fewer manual checks.</p>
+      <div class="story-tools"><span class="tool-tag">Excel Macros</span><span class="tool-tag">Power Query</span><span class="tool-tag">VBA</span></div>
     </div>
 
     <div class="story-card reveal">
       <div class="story-number">03</div>
       <h3 class="story-title">The Documents Nobody Could Find</h3>
-      <p class="story-text">Sales reps were downloading product files one by one from scattered locations — time-consuming, frustrating, and completely avoidable.</p>
-      <p class="story-impact">↳ Built a one-click retrieval and organisation system. The team stopped losing time on admin and started focusing on selling.</p>
-      <div class="story-tools">
-        <span class="tool-tag">Power Automate</span>
-        <span class="tool-tag">File Automation</span>
-      </div>
+      <p class="story-text">Sales teams were retrieving product documentation manually — one SKU at a time — from internal systems. It was slow, repetitive, and completely avoidable.</p>
+      <p class="story-impact">↳ Built a one-click sales enablement tool that retrieves and organizes product documentation automatically, reducing preparation effort by more than 95%.</p>
+      <div class="story-tools"><span class="tool-tag">Power Automate</span><span class="tool-tag">File Automation</span><span class="tool-tag">Sales Enablement</span></div>
     </div>
 
     <div class="story-card reveal">
       <div class="story-number">04</div>
       <h3 class="story-title">The Site List That Updated Itself</h3>
-      <p class="story-text">Maintaining an accurate, up-to-date site list was a constant manual chore spread across the ops teams — prone to errors and always slightly out of date.</p>
-      <p class="story-impact">↳ Designed an automatic update workflow integrated with Copilot. The list stays current without anyone touching it.</p>
-      <div class="story-tools">
-        <span class="tool-tag">Microsoft Copilot</span>
-        <span class="tool-tag">Power Automate</span>
-      </div>
+      <p class="story-text">Maintaining an accurate site list was a manual operational chore — often fragmented, slow to update, and dependent on several people remembering the latest changes.</p>
+      <p class="story-impact">↳ Designed an automatic update workflow connected to Copilot-assisted processes, helping keep operational information cleaner and more current.</p>
+      <div class="story-tools"><span class="tool-tag">Microsoft Copilot</span><span class="tool-tag">Power Automate</span><span class="tool-tag">Process Design</span></div>
     </div>
 
     <div class="story-card reveal">
       <div class="story-number">05</div>
       <h3 class="story-title">When the Dashboard Changed the Conversation</h3>
-      <p class="story-text">Leadership decisions were driven by gut feel and fragmented reports. Workforce costs, service delivery, resource utilisation — all discussed but never truly visible.</p>
-      <p class="story-impact">↳ Built Power BI dashboards that shifted the conversation from assumption to evidence. The numbers aren't the story. The decisions they enabled are.</p>
-      <div class="story-tools">
-        <span class="tool-tag">Power BI</span>
-        <span class="tool-tag">Data Modelling</span>
-        <span class="tool-tag">DAX</span>
-      </div>
+      <p class="story-text">Leadership decisions were driven by fragmented reporting. Workforce costs, service delivery, resource utilisation — all discussed, but not always visible in one place.</p>
+      <p class="story-impact">↳ Built Power BI dashboards that improved operational visibility and contributed to a 13% project cost reduction through better KPI tracking and resource insight.</p>
+      <div class="story-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">Data Modelling</span><span class="tool-tag">KPI Reporting</span></div>
     </div>
 
     <div class="story-card reveal">
       <div class="story-number">06</div>
       <h3 class="story-title">Onboarding That Actually Worked</h3>
       <p class="story-text">New starters were left to piece things together on their own — scattered documents, no clear flow, and the feeling of being unsupported from day one.</p>
-      <p class="story-impact">↳ Redesigned the onboarding experience from scratch — not just the documents, but the flow, the knowledge transfer, the feeling of being supported. Colleagues settled in faster and felt less lost.</p>
-      <div class="story-tools">
-        <span class="tool-tag">Process Design</span>
-        <span class="tool-tag">Knowledge Management</span>
-        <span class="tool-tag">Copilot</span>
-      </div>
+      <p class="story-impact">↳ Redesigned the onboarding experience from scratch: flow, documentation, knowledge transfer, and support structure — helping new colleagues settle in faster.</p>
+      <div class="story-tools"><span class="tool-tag">Process Design</span><span class="tool-tag">Knowledge Management</span><span class="tool-tag">Onboarding</span></div>
     </div>
-
   </div>
+
+  <p class="section-intro reveal" style="margin-top:2rem; font-size:0.85rem;">
+    Note: Some examples are described at a high level to respect internal confidentiality while still showing the business problem, approach, and impact.
+  </p>
 </section>
 
-<!-- PHILOSOPHY -->
 <section id="philosophy">
   <div class="section-label">How I Think</div>
   <h2 class="section-title reveal">My <em>approach</em> to AI</h2>
@@ -639,49 +576,27 @@
     <div>
       <div class="philosophy-text reveal">
         <p>I'm not here to automate people out of their jobs. I'm here to take the <strong>repetitive, draining work off their plate</strong> so they can focus on what actually matters.</p>
-        <p>I've deployed AI tools across multiple companies — not as experiments, but as <strong>real integrated solutions that teams actually use</strong>. The technology is rarely the hard part.</p>
-        <p>The hard part is <strong>change management</strong>. It's helping a team trust a new workflow. It's making sure the solution fits how people actually work, not how we wish they worked. It's getting everyone across the line together.</p>
+        <p>I've deployed AI and automation tools not as experiments, but as <strong>real integrated solutions that teams actually use</strong>. The technology is rarely the hardest part.</p>
+        <p>The hard part is <strong>change management</strong>: helping teams trust a new workflow, making sure the solution fits how people actually work, and getting everyone across the line together.</p>
         <p>That's where the engineering mindset meets the people side — and that combination is what makes adoption stick.</p>
       </div>
     </div>
 
     <div class="philosophy-right reveal">
-      <div class="cert-block">
-        <div class="cert-label">Microsoft Certified</div>
-        <div class="cert-name">Azure AI Fundamentals — AI-900</div>
-      </div>
-      <div class="cert-block">
-        <div class="cert-label">Microsoft Certified</div>
-        <div class="cert-name">AI Product Manager</div>
-      </div>
+      <div class="cert-block"><div class="cert-label">Microsoft Certified</div><div class="cert-name">Azure AI Fundamentals — AI-900</div></div>
+      <div class="cert-block"><div class="cert-label">Certification / Training</div><div class="cert-name">AI Product Management</div></div>
 
       <div class="values-list">
-        <div class="value-item">
-          <div class="value-dot"></div>
-          <div>People first — technology is the enabler, not the goal</div>
-        </div>
-        <div class="value-item">
-          <div class="value-dot"></div>
-          <div>Practical solutions over impressive-sounding ones</div>
-        </div>
-        <div class="value-item">
-          <div class="value-dot"></div>
-          <div>Adoption matters more than deployment</div>
-        </div>
-        <div class="value-item">
-          <div class="value-dot"></div>
-          <div>Happy colleagues are a business outcome</div>
-        </div>
-        <div class="value-item">
-          <div class="value-dot"></div>
-          <div>Working smarter beats working harder, always</div>
-        </div>
+        <div class="value-item"><div class="value-dot"></div><div>People first — technology is the enabler, not the goal</div></div>
+        <div class="value-item"><div class="value-dot"></div><div>Practical solutions over impressive-sounding ones</div></div>
+        <div class="value-item"><div class="value-dot"></div><div>Adoption matters more than deployment</div></div>
+        <div class="value-item"><div class="value-dot"></div><div>Happy colleagues are a business outcome</div></div>
+        <div class="value-item"><div class="value-dot"></div><div>Working smarter beats working harder, always</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LEARNING -->
 <section id="learning">
   <div class="section-label">Always in the Game</div>
   <h2 class="section-title reveal">What I'm <em>exploring</em></h2>
@@ -701,80 +616,54 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-layout">
     <div>
       <div class="section-label">About Me</div>
-      <div class="about-quote reveal">
-        "I don't just analyse problems — <em>I build the fix.</em>"
-      </div>
+      <div class="about-quote reveal">"I don't just analyse problems — <em>I build the fix.</em>"</div>
       <div class="about-body reveal">
-        <p>I'm an engineer by training, a sales professional by experience, and an AI enthusiast by obsession. That combination lets me sit at the table with technical teams, business leaders, and end users — and speak all three languages.</p>
-        <p>What drives me is watching a team realise they no longer have to spend their afternoon on a task that used to drain them. That moment — when a process just works — is what gets me up in the morning.</p>
+        <p>I'm an engineer by training, a sales professional by experience, and an AI enthusiast by curiosity. That combination lets me sit at the table with technical teams, business leaders, and end users — and speak all three languages.</p>
+        <p>What drives me is watching a team realize they no longer have to spend their afternoon on a task that used to drain them. That moment — when a process just works — is what gets me up in the morning.</p>
         <p>I care about people working smarter, not harder. About AI that actually gets used. About solutions that fit how humans work, not the other way around.</p>
       </div>
     </div>
 
     <div class="skills-panel reveal">
-      <h4>Where I'm strongest</h4>
-      <div class="skill-row">
-        <div class="skill-label"><span>Microsoft Copilot & AI Agents</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label"><span>Power BI & Data Visualisation</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label"><span>Power Automate</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label"><span>Excel Macros & Automation</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="98"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label"><span>Process & Change Management</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label"><span>AI Prompt Engineering</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
-      </div>
+      <h4>Core capabilities</h4>
+      <div class="value-item"><div class="value-dot"></div><div><strong>AI & Automation</strong><br>Copilot, AI agents, prompt design, process automation, workflow optimization.</div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Business Operations</strong><br>Commercial workflows, sales operations, process improvement, stakeholder alignment.</div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Analytics & Reporting</strong><br>Power BI, KPI tracking, operational dashboards, data storytelling.</div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Technical Commercial Background</strong><br>Engineering foundation, technical sales, customer training, product support.</div></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
     <div class="section-label" style="justify-content:center">Let's Talk</div>
     <h2 class="contact-title reveal">Have a problem<br>worth <em>solving?</em></h2>
-    <p class="contact-sub reveal">
-      Whether you're thinking about AI adoption, struggling with a process, or just want to explore what's possible — I'd love to hear from you.
-    </p>
+    <p class="contact-sub reveal">Whether you're thinking about AI adoption, struggling with a process, or just want to explore what's possible — I'd love to hear from you.</p>
     <div class="contact-links reveal">
       <a href="mailto:marougkaskonstantinos@gmail.com" class="btn btn-primary">Send a Message</a>
+      <a href="CV_Konstantinos_Marougkas.pdf" target="_blank" class="btn btn-ghost">Download CV</a>
       <a href="https://www.linkedin.com/in/konstantinosmarougkas/" target="_blank" class="btn btn-ghost">LinkedIn</a>
       <a href="https://github.com/KostasMarou" target="_blank" class="btn btn-ghost">GitHub</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>© 2026 Konstantinos Marougkas</span>
 </footer>
 
 <script>
-  // ── CURSOR
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
 
   document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
+    mx = e.clientX;
+    my = e.clientY;
     cursor.style.left = mx + 'px';
     cursor.style.top = my + 'px';
   });
@@ -789,17 +678,21 @@
   animRing();
 
   document.querySelectorAll('a, button, .story-card, .learning-tag').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
-    el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('hover');
+      ring.classList.add('hover');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+      ring.classList.remove('hover');
+    });
   });
 
-  // ── NAV SCROLL
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // ── REVEAL ON SCROLL
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -811,20 +704,6 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => revealObs.observe(el));
 
-  // ── SKILL BARS
-  const skillObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-          bar.style.width = bar.dataset.width + '%';
-        });
-        skillObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.skills-panel').forEach(el => skillObs.observe(el));
-
-  // ── ACTIVE NAV LINK
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   const activeObs = new IntersectionObserver((entries) => {
