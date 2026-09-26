@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kostas Marougkas — Business Operations & AI Automation</title>
+<title>Kostas Marougkas — Business Operations, Process Improvement & Automation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -235,6 +235,16 @@
     margin-bottom: 4rem;
   }
 
+
+  #experience { background: var(--navy); }
+  .journey-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--glass-border); border:1px solid var(--glass-border); border-radius:6px; overflow:hidden; max-width:1100px; }
+  .journey-step { background:var(--navy); padding:2rem; min-height:230px; position:relative; }
+  .journey-step::after { content:'→'; position:absolute; right:-12px; top:50%; transform:translateY(-50%); z-index:2; color:var(--amber); font-size:1.2rem; }
+  .journey-step:last-child::after { display:none; }
+  .journey-kicker { color:var(--amber); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:.8rem; font-weight:500; }
+  .journey-title { font-family:'Fraunces',serif; font-size:1.25rem; color:var(--white); font-weight:400; margin-bottom:.8rem; }
+  .journey-text { color:var(--cream-dim); font-size:.86rem; line-height:1.65; }
+
   #stories { background: var(--navy-mid); }
 
   .stories-grid {
@@ -439,6 +449,8 @@
     section { padding: 5rem 1.5rem; }
     #hero { padding: 7rem 1.5rem 4rem; }
     .philosophy-layout, .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+     .journey-grid { grid-template-columns: 1fr 1fr; }
+     .journey-step::after { display:none; }
     .philosophy-right { padding-top: 0; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
@@ -446,6 +458,7 @@
   @media (max-width: 600px) {
     .nav-links { display: none; }
     .stories-grid { grid-template-columns: 1fr; gap: 1px; }
+     .journey-grid { grid-template-columns:1fr; }
     .hero-btns { flex-direction: column; }
     .impact-strip { flex-direction: column; }
     .btn { text-align: center; }
@@ -479,11 +492,11 @@
   <div class="hero-grid-lines"></div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">Business Operations · AI Automation · Commercial Excellence</p>
+    <p class="hero-eyebrow">Business Operations · Process Improvement · Data & Automation</p>
     <h1>Konstantinos<br><em>Marougkas</em></h1>
-    <p class="hero-subtitle">I turn inefficient workflows into scalable business solutions.</p>
+    <p class="hero-subtitle">I turn complex business problems into practical, scalable solutions.</p>
     <p class="hero-tagline">
-      Engineering mindset, commercial experience, and hands-on AI automation — focused on reducing manual work, improving decision-making, and helping teams operate better.
+      Engineering foundation, commercial experience, and a hands-on approach to process improvement, analytics and automation — connecting people, data and technology to improve how businesses operate.
     </p>
 
     <div class="hero-btns">
@@ -506,17 +519,31 @@
   </div>
 </section>
 
+
+<section id="experience">
+  <div class="section-label">Career Journey</div>
+  <h2 class="section-title reveal">A broader view of <em>how I got here</em></h2>
+  <p class="section-intro reveal">My career has moved across engineering, commercial work, project delivery and business operations. Each step added another perspective on the same question: how can we make the business work better?</p>
+  <div class="journey-grid reveal">
+    <div class="journey-step"><div class="journey-kicker">Foundation</div><div class="journey-title">Engineering</div><div class="journey-text">Built the technical foundation: structured problem solving, systems thinking, data and the discipline to understand how things work before changing them.</div></div>
+    <div class="journey-step"><div class="journey-kicker">Commercial</div><div class="journey-title">Technical Sales</div><div class="journey-text">Moved closer to customers, products and revenue — translating technical complexity into business value and learning what actually matters to users.</div></div>
+    <div class="journey-step"><div class="journey-kicker">Delivery</div><div class="journey-title">Projects & Operations</div><div class="journey-text">Expanded into stakeholder coordination, operational analytics, reporting and process ownership across teams and business needs.</div></div>
+    <div class="journey-step"><div class="journey-kicker">Today</div><div class="journey-title">Business Operations</div><div class="journey-text">Bringing the pieces together: process improvement, analytics, automation and AI to build practical solutions that scale beyond one task or one team.</div></div>
+  </div>
+</section>
+
 <section id="stories">
-  <div class="section-label">Real Business Impact</div>
-  <h2 class="section-title reveal">Business problems, <em>fixed practically</em></h2>
+  <div class="section-label">Selected Business Impact</div>
+  <h2 class="section-title reveal">From problems to <em>measurable outcomes</em></h2>
   <p class="section-intro reveal">
-    I focus on the messy middle between people, processes, and technology — where small operational changes can create major business impact.
+    The tools change. The pattern does not: understand the problem, simplify the process, use the data, build what is needed, and make sure the solution works in practice.
   </p>
 
   <div class="stories-grid">
     <div class="story-card reveal">
       <div class="story-number">01</div>
-      <h3 class="story-title">The Tender That Used to Take All Morning</h3>
+      <div class="journey-kicker">Automation & AI</div>
+       <h3 class="story-title">The Tender That Used to Take All Morning</h3>
       <p class="story-text">Sales teams were spending hours every day manually reviewing tenders — reading, filtering, and summarising opportunities one by one. Time that should have been spent selling.</p>
       <p class="story-impact">↳ Built a Copilot-integrated AI workflow that filters opportunities and prepares tender summaries automatically, reducing review time by over 90%.</p>
       <div class="story-tools"><span class="tool-tag">Microsoft Copilot</span><span class="tool-tag">AI Agent Design</span><span class="tool-tag">Prompt Engineering</span></div>
@@ -524,7 +551,8 @@
 
     <div class="story-card reveal">
       <div class="story-number">02</div>
-      <h3 class="story-title">The Price List That Took a Week</h3>
+      <div class="journey-kicker">Process Improvement</div>
+       <h3 class="story-title">The Price List That Took a Week</h3>
       <p class="story-text">Every pricing update meant days of manual comparison, validation, and reformatting — a task that created bottlenecks and errors across the business.</p>
       <p class="story-impact">↳ Automated the process using Excel Macros and Power Query. What took up to a week now takes around 30 minutes — with cleaner data and fewer manual checks.</p>
       <div class="story-tools"><span class="tool-tag">Excel Macros</span><span class="tool-tag">Power Query</span><span class="tool-tag">VBA</span></div>
@@ -532,7 +560,8 @@
 
     <div class="story-card reveal">
       <div class="story-number">03</div>
-      <h3 class="story-title">The Documents Nobody Could Find</h3>
+      <div class="journey-kicker">Process Improvement</div>
+       <h3 class="story-title">The Documents Nobody Could Find</h3>
       <p class="story-text">Sales teams were retrieving product documentation manually — one SKU at a time — from internal systems. It was slow, repetitive, and completely avoidable.</p>
       <p class="story-impact">↳ Built a one-click sales enablement tool that retrieves and organizes product documentation automatically, reducing preparation effort by more than 95%.</p>
       <div class="story-tools"><span class="tool-tag">Power Automate</span><span class="tool-tag">File Automation</span><span class="tool-tag">Sales Enablement</span></div>
@@ -540,7 +569,8 @@
 
     <div class="story-card reveal">
       <div class="story-number">04</div>
-      <h3 class="story-title">The Site List That Updated Itself</h3>
+      <div class="journey-kicker">Cross-functional Solutions</div>
+       <h3 class="story-title">The Site List That Updated Itself</h3>
       <p class="story-text">Maintaining an accurate site list was a manual operational chore — often fragmented, slow to update, and dependent on several people remembering the latest changes.</p>
       <p class="story-impact">↳ Designed an automatic update workflow connected to Copilot-assisted processes, helping keep operational information cleaner and more current.</p>
       <div class="story-tools"><span class="tool-tag">Microsoft Copilot</span><span class="tool-tag">Power Automate</span><span class="tool-tag">Process Design</span></div>
@@ -548,7 +578,8 @@
 
     <div class="story-card reveal">
       <div class="story-number">05</div>
-      <h3 class="story-title">When the Dashboard Changed the Conversation</h3>
+      <div class="journey-kicker">Data & Decision Support</div>
+       <h3 class="story-title">When the Dashboard Changed the Conversation</h3>
       <p class="story-text">Leadership decisions were driven by fragmented reporting. Workforce costs, service delivery, resource utilisation — all discussed, but not always visible in one place.</p>
       <p class="story-impact">↳ Built Power BI dashboards that improved operational visibility and contributed to a 13% project cost reduction through better KPI tracking and resource insight.</p>
       <div class="story-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">Data Modelling</span><span class="tool-tag">KPI Reporting</span></div>
@@ -556,7 +587,8 @@
 
     <div class="story-card reveal">
       <div class="story-number">06</div>
-      <h3 class="story-title">Onboarding That Actually Worked</h3>
+      <div class="journey-kicker">Process & Change</div>
+       <h3 class="story-title">Onboarding That Actually Worked</h3>
       <p class="story-text">New starters were left to piece things together on their own — scattered documents, no clear flow, and the feeling of being unsupported from day one.</p>
       <p class="story-impact">↳ Redesigned the onboarding experience from scratch: flow, documentation, knowledge transfer, and support structure — helping new colleagues settle in faster.</p>
       <div class="story-tools"><span class="tool-tag">Process Design</span><span class="tool-tag">Knowledge Management</span><span class="tool-tag">Onboarding</span></div>
@@ -575,11 +607,11 @@
   <div class="philosophy-layout">
     <div>
       <div class="philosophy-text reveal">
-        <p>I'm not here to automate people out of their jobs. I'm here to take the <strong>repetitive, draining work off their plate</strong> so they can focus on what actually matters.</p>
-        <p>I've deployed AI and automation tools not as experiments, but as <strong>real integrated solutions that teams actually use</strong>. The technology is rarely the hardest part.</p>
-        <p>The hard part is <strong>change management</strong>: helping teams trust a new workflow, making sure the solution fits how people actually work, and getting everyone across the line together.</p>
-        <p>That's where the engineering mindset meets the people side — and that combination is what makes adoption stick.</p>
-      </div>
+        <p>I start with the <strong>business problem, not the tool</strong>. What is slowing people down? Where is information getting lost? What decision could be made better?</p>
+         <p>From there, I simplify the process, understand the data and build the most practical solution — whether that means <strong>a redesigned workflow, a dashboard, automation, or AI</strong>.</p>
+         <p>The final step is adoption. A technically good solution has little value if people do not trust it or use it, so I involve stakeholders, iterate with users and make the change understandable.</p>
+         <p>That combination of <strong>structured problem solving, commercial awareness and hands-on delivery</strong> is the way I like to work.</p>
+         </div>
     </div>
 
     <div class="philosophy-right reveal">
@@ -598,9 +630,9 @@
 </section>
 
 <section id="learning">
-  <div class="section-label">Always in the Game</div>
-  <h2 class="section-title reveal">What I'm <em>exploring</em></h2>
-  <p class="learning-intro reveal">"AI moves fast. I move with it."</p>
+  <div class="section-label">Capabilities & Development</div>
+  <h2 class="section-title reveal">What I'm <em>building on</em></h2>
+  <p class="learning-intro reveal">"Curiosity is useful when it turns into better ways of working."</p>
 
   <div class="learning-grid reveal">
     <span class="learning-tag">Agentic AI Workflows</span>
@@ -622,18 +654,18 @@
       <div class="section-label">About Me</div>
       <div class="about-quote reveal">"I don't just analyse problems — <em>I build the fix.</em>"</div>
       <div class="about-body reveal">
-        <p>I'm an engineer by training, a sales professional by experience, and an AI enthusiast by curiosity. That combination lets me sit at the table with technical teams, business leaders, and end users — and speak all three languages.</p>
-        <p>What drives me is watching a team realize they no longer have to spend their afternoon on a task that used to drain them. That moment — when a process just works — is what gets me up in the morning.</p>
-        <p>I care about people working smarter, not harder. About AI that actually gets used. About solutions that fit how humans work, not the other way around.</p>
+        <p>I'm an engineer by training with experience across technical sales, commercial work, projects and business operations. Over time, I found my strongest pattern: understanding how work happens, spotting what can be improved, and turning that insight into something practical.</p>
+        <p>I enjoy working where business needs, people, data and technology meet. I can move from understanding a stakeholder's problem to analysing the process, building a prototype, communicating the case for change and helping the solution land.</p>
+        <p>I care about measurable improvement, simple solutions and people working smarter. AI and automation are powerful tools in that toolbox — but the business outcome is always the point.</p>
       </div>
     </div>
 
     <div class="skills-panel reveal">
       <h4>Core capabilities</h4>
-      <div class="value-item"><div class="value-dot"></div><div><strong>AI & Automation</strong><br>Copilot, AI agents, prompt design, process automation, workflow optimization.</div></div>
-      <div class="value-item"><div class="value-dot"></div><div><strong>Business Operations</strong><br>Commercial workflows, sales operations, process improvement, stakeholder alignment.</div></div>
-      <div class="value-item"><div class="value-dot"></div><div><strong>Analytics & Reporting</strong><br>Power BI, KPI tracking, operational dashboards, data storytelling.</div></div>
-      <div class="value-item"><div class="value-dot"></div><div><strong>Technical Commercial Background</strong><br>Engineering foundation, technical sales, customer training, product support.</div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Process Improvement & Transformation</strong><br>Workflow redesign, operating improvements, change adoption and cross-functional delivery.</div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Business & Commercial Operations</strong><br>Sales operations, commercial workflows, stakeholder alignment and practical business problem solving.</div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Analytics & Decision Support</strong><br>Power BI, KPI tracking, operational dashboards, data modelling and data storytelling.</div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Automation & AI</strong><br>Copilot, AI agents, Power Platform, prompt design and workflow automation — applied where they create real value.</div></div>
     </div>
   </div>
 </section>
@@ -642,7 +674,7 @@
   <div class="contact-inner">
     <div class="section-label" style="justify-content:center">Let's Talk</div>
     <h2 class="contact-title reveal">Have a problem<br>worth <em>solving?</em></h2>
-    <p class="contact-sub reveal">Whether you're thinking about AI adoption, struggling with a process, or just want to explore what's possible — I'd love to hear from you.</p>
+    <p class="contact-sub reveal">Whether you're improving operations, redesigning a process, using data better, or exploring where automation can create value — I'd love to hear from you.</p>
     <div class="contact-links reveal">
       <a href="mailto:marougkaskonstantinos@gmail.com" class="btn btn-primary">Send a Message</a>
       <a href="CV_Konstantinos_Marougkas.pdf" target="_blank" class="btn btn-ghost">Download CV</a>
