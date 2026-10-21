@@ -3,751 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kostas Marougkas: engineer working in sales operations, process improvement and automation. Selected work, approach and credentials.">
 <title>Kostas Marougkas — Business Operations, Process Improvement & Automation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0f1923;
-    --navy-mid: #162030;
-    --navy-light: #1e2d40;
-    --amber: #e8a245;
-    --amber-light: #f2c07a;
-    --cream: #f5f0e8;
-    --cream-dim: #d6cfc2;
-    --white: #ffffff;
-    --glass: rgba(255,255,255,0.04);
-    --glass-border: rgba(255,255,255,0.08);
-  }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; font-size: 16px; }
-
-  body {
-    background: var(--navy);
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-  }
-
-  .cursor {
-    width: 10px; height: 10px;
-    background: var(--amber);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-  }
-
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1.5px solid rgba(232,162,69,0.4);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
-  }
-
-  .cursor.hover { width: 18px; height: 18px; background: var(--amber-light); }
-  .cursor-ring.hover { width: 54px; height: 54px; border-color: rgba(232,162,69,0.7); }
-
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-    opacity: 0.025;
-    pointer-events: none; z-index: 1000;
-  }
-
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-    padding: 1.4rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
-    transition: background 0.4s ease, backdrop-filter 0.4s ease;
-  }
-
-  nav.scrolled {
-    background: rgba(15,25,35,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-  }
-
-  .nav-logo {
-    font-family: 'Fraunces', serif;
-    font-size: 1.1rem; font-weight: 400;
-    color: var(--cream); text-decoration: none;
-    letter-spacing: 0.02em;
-  }
-
-  .nav-logo span { color: var(--amber); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    color: var(--cream-dim); text-decoration: none;
-    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
-    text-transform: uppercase; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--amber); }
-
-  #hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 8rem 3rem 4rem;
-    position: relative; overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(232,162,69,0.07) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 80% at 20% 80%, rgba(30,45,64,0.8) 0%, transparent 60%);
-  }
-
-  .hero-grid-lines {
-    position: absolute; inset: 0; z-index: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
-  }
-
-  .hero-content { position: relative; z-index: 1; max-width: 820px; }
-
-  .hero-eyebrow {
-    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--amber);
-    margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 0.8rem;
-    opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
-  }
-
-  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--amber); }
-
-  h1 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    font-weight: 300; line-height: 1.05;
-    color: var(--white); margin-bottom: 0.2rem;
-    opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards;
-  }
-  h1 em { font-style: italic; color: var(--amber-light); }
-
-  .hero-subtitle {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
-    font-weight: 300; font-style: italic;
-    color: var(--cream-dim); margin-bottom: 2rem;
-    opacity: 0; animation: fadeUp 0.9s ease 0.55s forwards;
-  }
-
-  .hero-tagline {
-    font-size: 1rem; line-height: 1.75;
-    color: var(--cream-dim); max-width: 600px;
-    margin-bottom: 2.4rem;
-    opacity: 0; animation: fadeUp 0.9s ease 0.7s forwards;
-    border-left: 2px solid var(--amber);
-    padding-left: 1.2rem;
-  }
-
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s ease 0.85s forwards; }
-
-  .btn {
-    padding: 0.75rem 1.8rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem; font-weight: 500;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    text-decoration: none; border-radius: 3px;
-    transition: all 0.25s ease;
-    display: inline-block;
-  }
-
-  .btn-primary { background: var(--amber); color: var(--navy); border: 1px solid var(--amber); }
-  .btn-primary:hover { background: var(--amber-light); border-color: var(--amber-light); transform: translateY(-2px); }
-  .btn-ghost { background: transparent; color: var(--cream); border: 1px solid var(--glass-border); }
-  .btn-ghost:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
-
-  .impact-strip {
-    display: flex; flex-wrap: wrap; gap: 1rem;
-    margin-top: 2.5rem;
-    opacity: 0; animation: fadeUp 0.9s ease 1s forwards;
-  }
-
-  .impact-pill {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 4px;
-    padding: 0.9rem 1.1rem;
-    min-width: 140px;
-  }
-
-  .impact-pill strong {
-    display: block;
-    font-family: 'Fraunces', serif;
-    font-size: 1.35rem;
-    color: var(--amber-light);
-    font-weight: 400;
-  }
-
-  .impact-pill span {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--cream-dim);
-    margin-top: 0.2rem;
-    line-height: 1.4;
-  }
-
-  .hero-scroll-hint {
-    position: absolute; bottom: 2.5rem; left: 50%;
-    transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    opacity: 0; animation: fadeIn 1s ease 1.5s forwards;
-  }
-
-  .hero-scroll-hint span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dim); }
-  .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--amber), transparent); animation: scrollPulse 2s ease-in-out infinite; }
-
-  section { padding: 7rem 3rem; }
-
-  .section-label {
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--amber);
-    margin-bottom: 0.8rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-
-  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--amber); }
-
-  .section-title {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300; line-height: 1.2;
-    color: var(--white); margin-bottom: 1rem;
-  }
-  .section-title em { font-style: italic; color: var(--amber-light); }
-
-  .section-intro {
-    font-size: 1rem; line-height: 1.8;
-    color: var(--cream-dim); max-width: 600px;
-    margin-bottom: 4rem;
-  }
-
-
-  #experience { background: var(--navy); }
-  .journey-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--glass-border); border:1px solid var(--glass-border); border-radius:6px; overflow:hidden; max-width:1100px; }
-  .journey-step { background:var(--navy); padding:2rem; min-height:230px; position:relative; }
-  .journey-step::after { content:'→'; position:absolute; right:-12px; top:50%; transform:translateY(-50%); z-index:2; color:var(--amber); font-size:1.2rem; }
-  .journey-step:last-child::after { display:none; }
-  .journey-kicker { color:var(--amber); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:.8rem; font-weight:500; }
-  .journey-title { font-family:'Fraunces',serif; font-size:1.25rem; color:var(--white); font-weight:400; margin-bottom:.8rem; }
-  .journey-text { color:var(--cream-dim); font-size:.86rem; line-height:1.65; }
-
-  #stories { background: var(--navy-mid); }
-
-  .stories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5px;
-    background: var(--glass-border);
-    border: 1px solid var(--glass-border);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  .story-card {
-    background: var(--navy-mid);
-    padding: 2.4rem;
-    transition: background 0.3s ease;
-    position: relative; overflow: hidden;
-  }
-
-  .story-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--amber), transparent);
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-
-  .story-card:hover { background: var(--navy-light); }
-  .story-card:hover::before { transform: scaleX(1); }
-
-  .story-number {
-    font-family: 'Fraunces', serif;
-    font-size: 3rem; font-weight: 300; font-style: italic;
-    color: rgba(232,162,69,0.15); line-height: 1;
-    margin-bottom: 0.8rem;
-    transition: color 0.3s ease;
-  }
-  .story-card:hover .story-number { color: rgba(232,162,69,0.3); }
-
-  .story-title {
-    font-family: 'Fraunces', serif;
-    font-size: 1.2rem; font-weight: 400;
-    color: var(--white); margin-bottom: 1rem; line-height: 1.3;
-  }
-
-  .story-text {
-    font-size: 0.9rem; line-height: 1.75;
-    color: var(--cream-dim); margin-bottom: 1.4rem;
-  }
-
-  .story-impact {
-    font-size: 0.82rem; font-weight: 500;
-    color: var(--amber); margin-bottom: 1.2rem;
-    font-style: italic;
-  }
-
-  .story-tools { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-
-  .tool-tag {
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
-    text-transform: uppercase; padding: 0.3rem 0.7rem;
-    border: 1px solid var(--glass-border);
-    border-radius: 2px; color: var(--cream-dim);
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .story-card:hover .tool-tag { border-color: rgba(232,162,69,0.3); color: var(--cream); }
-
-  #philosophy { background: var(--navy); position: relative; overflow: hidden; }
-  #philosophy::before {
-    content: '';
-    position: absolute; top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(232,162,69,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .philosophy-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: start;
-    max-width: 1100px;
-  }
-
-  .philosophy-text { font-size: 1.05rem; line-height: 1.9; color: var(--cream-dim); }
-  .philosophy-text p { margin-bottom: 1.5rem; }
-  .philosophy-text strong { color: var(--cream); font-weight: 500; }
-  .philosophy-right { padding-top: 1rem; }
-
-  .cert-block {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 4px; padding: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .cert-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
-  .cert-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; color: var(--white); }
-
-  .values-list { margin-top: 2rem; }
-
-  .value-item {
-    display: flex; align-items: flex-start; gap: 1rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--glass-border);
-    font-size: 0.9rem; color: var(--cream-dim); line-height: 1.5;
-  }
-  .value-item:last-child { border-bottom: none; }
-  .value-item strong { color: var(--cream); font-weight: 500; }
-  .value-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 0.45rem; }
-
-  #learning { background: var(--navy-mid); }
-  .learning-intro { font-family: 'Fraunces', serif; font-size: 1.3rem; font-style: italic; color: var(--cream-dim); margin-bottom: 3rem; max-width: 500px; line-height: 1.6; }
-  .learning-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-
-  .learning-tag {
-    padding: 0.8rem 1.4rem;
-    border: 1px solid var(--glass-border);
-    border-radius: 100px;
-    font-size: 0.85rem; font-weight: 400;
-    color: var(--cream-dim);
-    background: var(--glass);
-    transition: all 0.3s ease;
-    position: relative; overflow: hidden;
-  }
-
-  .learning-tag::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(232,162,69,0.1), transparent);
-    opacity: 0; transition: opacity 0.3s;
-  }
-
-  .learning-tag:hover { border-color: var(--amber); color: var(--amber-light); transform: translateY(-3px); }
-  .learning-tag:hover::before { opacity: 1; }
-
-  #about { background: var(--navy); display: flex; align-items: center; }
-
-  .about-layout {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 5rem; align-items: center;
-    max-width: 1100px;
-  }
-
-  .about-quote {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 300; line-height: 1.5;
-    color: var(--white); margin-bottom: 2rem;
-  }
-  .about-quote em { font-style: italic; color: var(--amber-light); }
-
-  .about-body { font-size: 0.95rem; line-height: 1.85; color: var(--cream-dim); }
-  .about-body p { margin-bottom: 1.2rem; }
-
-  .skills-panel { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 6px; padding: 2rem; }
-  .skills-panel h4 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; color: var(--white); margin-bottom: 1.5rem; }
-
-  #contact { background: var(--navy-mid); text-align: center; padding: 6rem 3rem; }
-  .contact-inner { max-width: 600px; margin: 0 auto; }
-
-  .contact-title {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 300; color: var(--white);
-    line-height: 1.15; margin-bottom: 1.2rem;
-  }
-  .contact-title em { font-style: italic; color: var(--amber-light); }
-  .contact-sub { font-size: 0.95rem; color: var(--cream-dim); line-height: 1.7; margin-bottom: 2.5rem; }
-  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-
-  footer {
-    padding: 2rem 3rem;
-    border-top: 1px solid var(--glass-border);
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.78rem; color: var(--cream-dim);
-  }
-  footer a { color: var(--amber); text-decoration: none; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.4; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.1); }
-  }
-
-  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .nav-links { gap: 1.5rem; }
-    section { padding: 5rem 1.5rem; }
-    #hero { padding: 7rem 1.5rem 4rem; }
-    .philosophy-layout, .about-layout { grid-template-columns: 1fr; gap: 3rem; }
-     .journey-grid { grid-template-columns: 1fr 1fr; }
-     .journey-step::after { display:none; }
-    .philosophy-right { padding-top: 0; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
-
-  @media (max-width: 600px) {
-    .nav-links { display: none; }
-    .stories-grid { grid-template-columns: 1fr; gap: 1px; }
-     .journey-grid { grid-template-columns:1fr; }
-    .hero-btns { flex-direction: column; }
-    .impact-strip { flex-direction: column; }
-    .btn { text-align: center; }
-  }
-
-  @media (hover: none), (pointer: coarse) {
-    .cursor, .cursor-ring { display: none; }
-    .btn { cursor: pointer; }
-  }
+:root{--navy:#0f1923;--mid:#162030;--light:#1e2d40;--amber:#e8a245;--amber2:#f2c07a;--cream:#f5f0e8;--dim:#c9c2b5;--line:rgba(255,255,255,.1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--navy);color:var(--cream);font:300 1rem/1.7 'DM Sans',sans-serif}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;color:#fff;line-height:1.2}
+nav{position:sticky;top:0;z-index:10;background:rgba(15,25,35,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:flex-start;align-items:center;padding-top:1rem;padding-bottom:1rem}
+.logo{font-family:'Fraunces',serif;text-decoration:none;font-size:1.1rem}
+nav ul{display:flex;gap:1.8rem;list-style:none}
+nav ul a{text-decoration:none;color:var(--dim);font-size:.9rem}
+nav ul a:hover{color:var(--amber)}
+section{padding:5rem 0}
+.alt{background:var(--mid)}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem);margin-bottom:.8rem}
+.intro{color:var(--dim);max-width:62ch;margin-bottom:2.5rem}
+#hero{padding:5rem 0 4rem}
+#hero h1{font-size:clamp(1.9rem,4.4vw,3.1rem);font-weight:300;max-width:24ch;margin-bottom:1.4rem}
+.name{font:400 1.15rem 'Fraunces',serif;color:var(--amber2);margin-bottom:1rem}
+.lede{max-width:60ch;color:var(--dim);border-left:2px solid var(--amber);padding-left:1.1rem;margin-bottom:2rem}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn{padding:.7rem 1.5rem;border-radius:3px;text-decoration:none;font-weight:500;font-size:.9rem;border:1px solid var(--line);transition:.2s}
+.btn:hover{border-color:var(--amber);color:var(--amber)}
+.btn.p{background:var(--amber);border-color:var(--amber);color:var(--navy)}
+.btn.p:hover{background:var(--amber2);color:var(--navy)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
+.stat{border:1px solid var(--line);border-radius:4px;padding:1rem 1.1rem;background:rgba(255,255,255,.03)}
+.stat b{display:block;font:400 1.6rem 'Fraunces',serif;color:var(--amber2)}
+.stat span{display:block;font-size:.85rem;color:var(--dim);line-height:1.4}
+.stat i{display:block;font-style:normal;font-size:.78rem;color:var(--amber);margin-top:.3rem}
+.timeline{border-left:2px solid var(--line);margin-left:.4rem}
+.job{position:relative;padding:0 0 2.2rem 1.8rem}
+.job:last-child{padding-bottom:0}
+.job::before{content:'';position:absolute;left:-7px;top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--navy);border:2px solid var(--amber)}
+.job.now::before{background:var(--amber)}
+.job h3{font-size:1.3rem}
+.job .meta{color:var(--amber);font-size:.9rem;margin:.2rem 0 .6rem}
+.job p{color:var(--dim);max-width:68ch}
+.base{margin-top:2rem;color:var(--dim);font-size:.95rem;max-width:68ch}
+.group{margin-bottom:3rem}
+.group>h3{font-size:1.4rem;margin-bottom:.3rem}
+.group>.meta{color:var(--amber);font-size:.9rem;margin-bottom:1.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.card{background:var(--mid);border:1px solid var(--line);border-radius:6px;padding:1.6rem}
+.alt .card{background:var(--navy)}
+.card h4{font:400 1.12rem/1.3 'Fraunces',serif;color:#fff;margin-bottom:.9rem}
+.card p{font-size:.92rem;color:var(--dim);margin-bottom:.7rem}
+.card p b{color:var(--cream);font-weight:500}
+.card .res b{color:var(--amber2)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.tags span{font-size:.78rem;padding:.2rem .65rem;border:1px solid var(--line);border-radius:100px;color:var(--dim)}
+.also{border-top:1px solid var(--line);margin-top:1rem}
+.also li{list-style:none;padding:.9rem 0;border-bottom:1px solid var(--line);color:var(--dim);font-size:.95rem}
+.also li b{color:var(--cream);font-weight:500}
+.note{font-size:.85rem;color:var(--dim);margin-top:1.5rem}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
+.two p{color:var(--dim);margin-bottom:1.1rem;max-width:64ch}
+.two p strong{color:var(--cream);font-weight:500}
+.panel{border:1px solid var(--line);border-radius:6px;padding:1.5rem;background:rgba(255,255,255,.03)}
+.panel h3{font-size:1.05rem;margin-bottom:1rem}
+.panel div{padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--dim)}
+.panel div:last-child{border-bottom:0}
+.panel b{color:var(--cream);font-weight:500}
+.contact{text-align:center}
+.contact p{color:var(--dim);max-width:52ch;margin:0 auto 2rem}
+.contact .btns{justify-content:center;margin:0}
+footer{padding:1.8rem 1.5rem;border-top:1px solid var(--line);text-align:center;font-size:.8rem;color:var(--dim)}
+.focus{color:var(--amber2);font-size:.95rem;margin:-1rem 0 2rem}
+.scope{color:var(--dim);max-width:68ch;font-size:.95rem;margin:-.6rem 0 1.2rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2rem;counter-reset:s}
+.steps>div{border-top:2px solid var(--amber);padding-top:1rem;counter-increment:s}
+.steps h3{font-size:1.1rem;margin-bottom:.4rem}
+.steps h3::before{content:counter(s) ". ";color:var(--amber)}
+.steps p{color:var(--dim);font-size:.92rem}
+.lead{margin-top:2rem;max-width:62ch;color:var(--cream)}
+.cred h4{color:var(--amber2)}
+@media(max-width:800px){.two{grid-template-columns:1fr;gap:2rem}section{padding:3.5rem 0}}
+@media(max-width:600px){nav ul{gap:1.3rem;overflow-x:auto;white-space:nowrap}.btns{flex-direction:column}.btn{text-align:center}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
-
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<nav id="nav">
-  <a href="#hero" class="nav-logo">K<span>.</span>Marougkas</a>
-  <ul class="nav-links">
-    <li><a href="#stories">Work</a></li>
-    <li><a href="#philosophy">Approach</a></li>
-    <li><a href="#learning">Learning</a></li>
+<nav><div class="wrap">
+  <ul>
     <li><a href="#about">About</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#work">Impact</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#credentials">Credentials</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</nav>
+</div></nav>
 
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-lines"></div>
-
-  <div class="hero-content">
-    <p class="hero-eyebrow">Business Operations · Process Improvement · Data & Automation</p>
-    <h1>Konstantinos<br><em>Marougkas</em></h1>
-    <p class="hero-subtitle">I turn complex business problems into practical, scalable solutions.</p>
-    <p class="hero-tagline">
-      Engineering foundation, commercial experience, and a hands-on approach to process improvement, analytics and automation — connecting people, data and technology to improve how businesses operate.
-    </p>
-
-    <div class="hero-btns">
-      <a href="#stories" class="btn btn-primary">See My Work</a>
-      <a href="#about" class="btn btn-ghost">About Me</a>
-      <a href="#contact" class="btn btn-ghost">Let's Talk</a>
-    </div>
-
-    <div class="impact-strip">
-      <div class="impact-pill"><strong>98%</strong><span>pricing update effort reduced</span></div>
-      <div class="impact-pill"><strong>90%+</strong><span>tender review time reduced</span></div>
-      <div class="impact-pill"><strong>13%</strong><span>project cost reduction enabled</span></div>
-      <div class="impact-pill"><strong>€300k+</strong><span>annual revenue growth supported</span></div>
-    </div>
+<header id="hero"><div class="wrap">
+  <p class="name">Konstantinos Marougkas</p>
+  <h1>I find the slow, manual parts of how a business runs and build something better.</h1>
+  <p class="lede">Engineer by training, with a background in technical sales, project delivery and sales operations. I use Excel, Power Query, Power BI and Copilot to turn manual work into simple, reliable tools that people actually use.</p>
+  <p class="focus">Based in the Copenhagen area. Focus: sales operations, process improvement and automation.</p>
+  <div class="btns">
+    <a href="#work" class="btn p">See my work</a>
+    <a href="CV_Konstantinos_Marougkas.pdf" target="_blank" class="btn">Download CV</a>
+    <a href="#contact" class="btn">Get in touch</a>
   </div>
-
-  <div class="hero-scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+  <div class="stats">
+    <div class="stat"><b>98%</b><span>less effort on price list updates</span><i>Invisio</i></div>
+    <div class="stat"><b>90%+</b><span>less time on tender review</span><i>Invisio</i></div>
+    <div class="stat"><b>18%</b><span>lower personnel costs on a project I led</span><i>Hemmersbach</i></div>
+    <div class="stat"><b>€300k+</b><span>annual revenue growth supported</span><i>Health and Iasis</i></div>
   </div>
-</section>
+</div></header>
 
-
-<section id="experience">
-  <div class="section-label">Career Journey</div>
-  <h2 class="section-title reveal">A broader view of <em>how I got here</em></h2>
-  <p class="section-intro reveal">My career has moved across engineering, commercial work, project delivery and business operations. Each step added another perspective on the same question: how can we make the business work better?</p>
-  <div class="journey-grid reveal">
-    <div class="journey-step"><div class="journey-kicker">Foundation</div><div class="journey-title">Engineering</div><div class="journey-text">Built the technical foundation: structured problem solving, systems thinking, data and the discipline to understand how things work before changing them.</div></div>
-    <div class="journey-step"><div class="journey-kicker">Commercial</div><div class="journey-title">Technical Sales</div><div class="journey-text">Moved closer to customers, products and revenue — translating technical complexity into business value and learning what actually matters to users.</div></div>
-    <div class="journey-step"><div class="journey-kicker">Delivery</div><div class="journey-title">Projects & Operations</div><div class="journey-text">Expanded into stakeholder coordination, operational analytics, reporting and process ownership across teams and business needs.</div></div>
-    <div class="journey-step"><div class="journey-kicker">Today</div><div class="journey-title">Business Operations</div><div class="journey-text">Bringing the pieces together: process improvement, analytics, automation and AI to build practical solutions that scale beyond one task or one team.</div></div>
+<section id="about"><div class="wrap two">
+  <div>
+    <h2>About me</h2>
+    <p>I'm an engineer by training who ended up where business needs, people and data meet. My work has moved from technical sales through project delivery into sales operations, and the thread is the same: understand how work really happens, then fix what slows people down.</p>
+    <p>I care about changes that help the people doing the work and that I can also explain in business terms: time, cost, quality and control.</p>
+    <p>Outside work I study Danish and perform magic, which keeps me curious about how people notice, follow and remember things.</p>
   </div>
-</section>
-
-<section id="stories">
-  <div class="section-label">Selected Business Impact</div>
-  <h2 class="section-title reveal">From problems to <em>measurable outcomes</em></h2>
-  <p class="section-intro reveal">
-    The tools change. The pattern does not: understand the problem, simplify the process, use the data, build what is needed, and make sure the solution works in practice.
-  </p>
-
-  <div class="stories-grid">
-    <div class="story-card reveal">
-      <div class="story-number">01</div>
-      <div class="journey-kicker">Automation & AI</div>
-       <h3 class="story-title">The Tender That Used to Take All Morning</h3>
-      <p class="story-text">Sales teams were spending hours every day manually reviewing tenders — reading, filtering, and summarising opportunities one by one. Time that should have been spent selling.</p>
-      <p class="story-impact">↳ Built a Copilot-integrated AI workflow that filters opportunities and prepares tender summaries automatically, reducing review time by over 90%.</p>
-      <div class="story-tools"><span class="tool-tag">Microsoft Copilot</span><span class="tool-tag">AI Agent Design</span><span class="tool-tag">Prompt Engineering</span></div>
-    </div>
-
-    <div class="story-card reveal">
-      <div class="story-number">02</div>
-      <div class="journey-kicker">Process Improvement</div>
-       <h3 class="story-title">The Price List That Took a Week</h3>
-      <p class="story-text">Every pricing update meant days of manual comparison, validation, and reformatting — a task that created bottlenecks and errors across the business.</p>
-      <p class="story-impact">↳ Automated the process using Excel Macros and Power Query. What took up to a week now takes around 30 minutes — with cleaner data and fewer manual checks.</p>
-      <div class="story-tools"><span class="tool-tag">Excel Macros</span><span class="tool-tag">Power Query</span><span class="tool-tag">VBA</span></div>
-    </div>
-
-    <div class="story-card reveal">
-      <div class="story-number">03</div>
-      <div class="journey-kicker">Process Improvement</div>
-       <h3 class="story-title">The Documents Nobody Could Find</h3>
-      <p class="story-text">Sales teams were retrieving product documentation manually — one SKU at a time — from internal systems. It was slow, repetitive, and completely avoidable.</p>
-      <p class="story-impact">↳ Built a one-click sales enablement tool that retrieves and organizes product documentation automatically, reducing preparation effort by more than 95%.</p>
-      <div class="story-tools"><span class="tool-tag">Power Automate</span><span class="tool-tag">File Automation</span><span class="tool-tag">Sales Enablement</span></div>
-    </div>
-
-    <div class="story-card reveal">
-      <div class="story-number">04</div>
-      <div class="journey-kicker">Cross-functional Solutions</div>
-       <h3 class="story-title">The Site List That Updated Itself</h3>
-      <p class="story-text">Maintaining an accurate site list was a manual operational chore — often fragmented, slow to update, and dependent on several people remembering the latest changes.</p>
-      <p class="story-impact">↳ Designed an automatic update workflow connected to Copilot-assisted processes, helping keep operational information cleaner and more current.</p>
-      <div class="story-tools"><span class="tool-tag">Microsoft Copilot</span><span class="tool-tag">Power Automate</span><span class="tool-tag">Process Design</span></div>
-    </div>
-
-    <div class="story-card reveal">
-      <div class="story-number">05</div>
-      <div class="journey-kicker">Data & Decision Support</div>
-       <h3 class="story-title">When the Dashboard Changed the Conversation</h3>
-      <p class="story-text">Leadership decisions were driven by fragmented reporting. Workforce costs, service delivery, resource utilisation — all discussed, but not always visible in one place.</p>
-      <p class="story-impact">↳ Built Power BI dashboards that improved operational visibility and contributed to a 13% project cost reduction through better KPI tracking and resource insight.</p>
-      <div class="story-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">Data Modelling</span><span class="tool-tag">KPI Reporting</span></div>
-    </div>
-
-    <div class="story-card reveal">
-      <div class="story-number">06</div>
-      <div class="journey-kicker">Process & Change</div>
-       <h3 class="story-title">Onboarding That Actually Worked</h3>
-      <p class="story-text">New starters were left to piece things together on their own — scattered documents, no clear flow, and the feeling of being unsupported from day one.</p>
-      <p class="story-impact">↳ Redesigned the onboarding experience from scratch: flow, documentation, knowledge transfer, and support structure — helping new colleagues settle in faster.</p>
-      <div class="story-tools"><span class="tool-tag">Process Design</span><span class="tool-tag">Knowledge Management</span><span class="tool-tag">Onboarding</span></div>
-    </div>
+  <div class="panel">
+    <h3>Skills and credentials</h3>
+    <div><b>Automation and AI.</b> Copilot, AI agents, Power Automate, Excel macros, prompt design</div>
+    <div><b>Data.</b> Power BI, Power Query, Python, SQL, data modelling</div>
+    <div><b>Operations.</b> Process design, project delivery, stakeholder alignment, change adoption</div>
+    <div><b>Languages.</b> Greek (native), English (fluent), German (intermediate), Danish (PD3, Module 4)</div>
   </div>
+</div></section>
 
-  <p class="section-intro reveal" style="margin-top:2rem; font-size:0.85rem;">
-    Note: Some examples are described at a high level to respect internal confidentiality while still showing the business problem, approach, and impact.
-  </p>
-</section>
+<section id="approach" class="alt"><div class="wrap">
+  <h2>How I work</h2>
+  <p class="intro">The tools change from project to project. The approach stays the same.</p>
+  <div class="steps">
+    <div><h3>See the friction</h3><p>Stay close to daily operations and find where people lose time or information.</p></div>
+    <div><h3>Structure it</h3><p>Agree the process, the owner and the data before building anything.</p></div>
+    <div><h3>Build the solution</h3><p>Use the simplest tool that works: Excel, Power Query, Power BI, Copilot or Fabric.</p></div>
+    <div><h3>Drive adoption</h3><p>Pilot with real users, collect feedback, write the guide and keep improving.</p></div>
+  </div>
+  <p class="lead">The value is more than time saved: more capacity for customers, better data quality, faster answers and clearer ownership.</p>
+</div></section>
 
-<section id="philosophy">
-  <div class="section-label">How I Think</div>
-  <h2 class="section-title reveal">My <em>approach</em> to AI</h2>
+<section id="work"><div class="wrap">
+  <h2>Impact at work</h2>
+  <p class="intro">Each example follows the same shape: the situation, what I did, and the result. Some details are kept general to respect confidentiality.</p>
 
-  <div class="philosophy-layout">
-    <div>
-      <div class="philosophy-text reveal">
-        <p>I start with the <strong>business problem, not the tool</strong>. What is slowing people down? Where is information getting lost? What decision could be made better?</p>
-         <p>From there, I simplify the process, understand the data and build the most practical solution — whether that means <strong>a redesigned workflow, a dashboard, automation, or AI</strong>.</p>
-         <p>The final step is adoption. A technically good solution has little value if people do not trust it or use it, so I involve stakeholders, iterate with users and make the change understandable.</p>
-         <p>That combination of <strong>structured problem solving, commercial awareness and hands-on delivery</strong> is the way I like to work.</p>
-         </div>
-    </div>
-
-    <div class="philosophy-right reveal">
-      <div class="cert-block"><div class="cert-label">Microsoft Certified</div><div class="cert-name">Azure AI Fundamentals — AI-900</div></div>
-      <div class="cert-block"><div class="cert-label">Certification / Training</div><div class="cert-name">AI Product Management</div></div>
-
-      <div class="values-list">
-        <div class="value-item"><div class="value-dot"></div><div>People first — technology is the enabler, not the goal</div></div>
-        <div class="value-item"><div class="value-dot"></div><div>Practical solutions over impressive-sounding ones</div></div>
-        <div class="value-item"><div class="value-dot"></div><div>Adoption matters more than deployment</div></div>
-        <div class="value-item"><div class="value-dot"></div><div>Happy colleagues are a business outcome</div></div>
-        <div class="value-item"><div class="value-dot"></div><div>Working smarter beats working harder, always</div></div>
+  <div class="group">
+    <h3>Invisio</h3>
+    <p class="meta">Sales Coordinator</p>
+    <p class="scope">My work here has grown beyond coordination into master data, commercial enablement, process governance, analytics and AI enablement.</p>
+    <div class="grid">
+      <div class="card">
+        <h4>Sales Support Agent</h4>
+        <p><b>Situation:</b> As the team and product range grew, it wasn't always clear who owned a request or where to find a product answer.</p>
+        <p><b>What I did:</b> Built an agent trained on our responsibility matrix, the product catalog I created and common FAQs. The new starter onboarding I redesigned is part of the same knowledge base. I tested it with the team and improved it over several rounds.</p>
+        <p class="res"><b>Result:</b> Less confusion about ownership and routing, and a first stop for everyday questions, including for new colleagues.</p>
+        <div class="tags"><span>Microsoft Copilot</span><span>Agent design</span><span>Knowledge management</span></div>
+      </div>
+      <div class="card">
+        <h4>Tender screening with Copilot</h4>
+        <p><b>Situation:</b> Checking incoming tenders for relevance took hours of manual reading every day.</p>
+        <p><b>What I did:</b> Built a Copilot workflow that screens tenders for relevance and prepares summaries.</p>
+        <p class="res"><b>Result:</b> Initial screening takes 5–10 minutes, over 90% less than before.</p>
+        <div class="tags"><span>Microsoft Copilot</span><span>Prompt design</span></div>
+      </div>
+      <div class="card">
+        <h4>Price list updates and a live price app</h4>
+        <p><b>Situation:</b> Each price update meant up to a week of manual comparison, checks and reformatting.</p>
+        <p><b>What I did:</b> Automated the update with Excel macros and Power Query. Then I took it further with a dynamic, always up-to-date Fabric app that is simple to use and works on mobile.</p>
+        <p class="res"><b>Result:</b> Updates take about 30 minutes instead of a week, and sales can find prices and product information on the go instead of searching a huge Excel file.</p>
+        <div class="tags"><span>Microsoft Fabric</span><span>Excel macros</span><span>Power Query</span></div>
+      </div>
+      <div class="card">
+        <h4>Product documentation retrieval</h4>
+        <p><b>Situation:</b> Product documents were collected one SKU at a time from internal systems.</p>
+        <p><b>What I did:</b> Built a one-click tool that looks up many SKUs at once and downloads and organizes their datasheets.</p>
+        <p class="res"><b>Result:</b> Over 95% less preparation effort.</p>
+        <div class="tags"><span>Power Automate</span><span>File automation</span></div>
       </div>
     </div>
   </div>
-</section>
 
-<section id="learning">
-  <div class="section-label">Capabilities & Development</div>
-  <h2 class="section-title reveal">What I'm <em>building on</em></h2>
-  <p class="learning-intro reveal">"Curiosity is useful when it turns into better ways of working."</p>
-
-  <div class="learning-grid reveal">
-    <span class="learning-tag">Agentic AI Workflows</span>
-    <span class="learning-tag">Copilot Extensibility</span>
-    <span class="learning-tag">AI Product Thinking</span>
-    <span class="learning-tag">Responsible AI Adoption</span>
-    <span class="learning-tag">LLM Prompt Design</span>
-    <span class="learning-tag">Power Platform</span>
-    <span class="learning-tag">Process Automation</span>
-    <span class="learning-tag">Change Management</span>
-    <span class="learning-tag">Digital Transformation</span>
-    <span class="learning-tag">Commercial Excellence</span>
-  </div>
-</section>
-
-<section id="about">
-  <div class="about-layout">
-    <div>
-      <div class="section-label">About Me</div>
-      <div class="about-quote reveal">"I don't just analyse problems — <em>I build the fix.</em>"</div>
-      <div class="about-body reveal">
-        <p>I'm an engineer by training with experience across technical sales, commercial work, projects and business operations. Over time, I found my strongest pattern: understanding how work happens, spotting what can be improved, and turning that insight into something practical.</p>
-        <p>I enjoy working where business needs, people, data and technology meet. I can move from understanding a stakeholder's problem to analysing the process, building a prototype, communicating the case for change and helping the solution land.</p>
-        <p>I care about measurable improvement, simple solutions and people working smarter. AI and automation are powerful tools in that toolbox — but the business outcome is always the point.</p>
+  <div class="group">
+    <h3>Hemmersbach</h3>
+    <p class="meta">Project delivery</p>
+    <div class="grid">
+      <div class="card">
+        <h4>Cutting project costs by automating a manual step</h4>
+        <p><b>Situation:</b> On a project I was leading, we wanted to reduce costs.</p>
+        <p><b>What I did:</b> Noticed a manual part of the work and automated it.</p>
+        <p class="res"><b>Result:</b> Personnel costs on the project went down by 18%.</p>
+        <div class="tags"><span>Project management</span><span>Process automation</span><span>Cost reduction</span></div>
+      </div>
+      <div class="card">
+        <h4>Automatic site list updates</h4>
+        <p><b>Situation:</b> Updating the list of sites we serviced relied on a complex process in Excel.</p>
+        <p><b>What I did:</b> Automated it with macros and Power Query.</p>
+        <p class="res"><b>Result:</b> A simpler, repeatable update with far less manual work.</p>
+        <div class="tags"><span>Excel macros</span><span>Power Query</span></div>
       </div>
     </div>
+  </div>
 
-    <div class="skills-panel reveal">
-      <h4>Core capabilities</h4>
-      <div class="value-item"><div class="value-dot"></div><div><strong>Process Improvement & Transformation</strong><br>Workflow redesign, operating improvements, change adoption and cross-functional delivery.</div></div>
-      <div class="value-item"><div class="value-dot"></div><div><strong>Business & Commercial Operations</strong><br>Sales operations, commercial workflows, stakeholder alignment and practical business problem solving.</div></div>
-      <div class="value-item"><div class="value-dot"></div><div><strong>Analytics & Decision Support</strong><br>Power BI, KPI tracking, operational dashboards, data modelling and data storytelling.</div></div>
-      <div class="value-item"><div class="value-dot"></div><div><strong>Automation & AI</strong><br>Copilot, AI agents, Power Platform, prompt design and workflow automation — applied where they create real value.</div></div>
+  <div class="group">
+    <h3>Health and Iasis</h3>
+    <p class="meta">Technical sales</p>
+    <div class="grid">
+      <div class="card">
+        <h4>Building a CRM to replace paper records</h4>
+        <p><b>Situation:</b> Customer information was kept on paper, which made timely follow-up and demand by product hard to see.</p>
+        <p><b>What I did:</b> Built a CRM in Excel that let us follow up on time and see which products customers wanted, then focused the team on those.</p>
+        <p class="res"><b>Result:</b> We won the largest orthopaedic hospital in Greece with our anchor products, beating much larger competitors, and supported €300k+ in annual revenue growth.</p>
+        <div class="tags"><span>Excel</span><span>CRM</span><span>Commercial analysis</span></div>
+      </div>
     </div>
   </div>
-</section>
 
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-label" style="justify-content:center">Let's Talk</div>
-    <h2 class="contact-title reveal">Have a problem<br>worth <em>solving?</em></h2>
-    <p class="contact-sub reveal">Whether you're improving operations, redesigning a process, using data better, or exploring where automation can create value — I'd love to hear from you.</p>
-    <div class="contact-links reveal">
-      <a href="mailto:marougkaskonstantinos@gmail.com" class="btn btn-primary">Send a Message</a>
-      <a href="CV_Konstantinos_Marougkas.pdf" target="_blank" class="btn btn-ghost">Download CV</a>
-      <a href="https://www.linkedin.com/in/konstantinosmarougkas/" target="_blank" class="btn btn-ghost">LinkedIn</a>
-      <a href="https://github.com/KostasMarou" target="_blank" class="btn btn-ghost">GitHub</a>
+  <p class="note">Other work includes a quarterly program reporting generator, an acoustic measurement analysis workflow, CRM master data cleanup and my first Power BI dashboards.</p>
+</div></section>
+
+<section id="projects" class="alt"><div class="wrap">
+  <h2>Projects outside work</h2>
+  <p class="intro">Things I've built to learn, or just because they were interesting.</p>
+  <div class="grid">
+    <div class="card">
+      <h4>Budget tracking and insights app</h4>
+      <p>A personal full-stack app that tracks spending and turns it into simple insights.</p>
+    </div>
+    <div class="card">
+      <h4>Data analytics projects</h4>
+      <p>Dashboards and analysis built with Power BI, Python and SQL during my data analytics diploma.</p>
+      <div class="tags"><span>Power BI</span><span>Python</span><span>SQL</span></div>
+    </div>
+    <div class="card">
+      <h4>Roulette prediction</h4>
+      <p>A university project exploring whether roulette outcomes can be modelled and predicted.</p>
+    </div>
+    <div class="card">
+      <h4>A performance tool</h4>
+      <p>A small web app I built for magic. I'll happily explain it in person.</p>
     </div>
   </div>
-</section>
+</div></section>
 
-<footer>
-  <span>© 2026 Konstantinos Marougkas</span>
-</footer>
+<section id="career"><div class="wrap">
+  <h2>Career path</h2>
+  <p class="intro">The short version. The details are in my CV.</p>
+  <div class="timeline">
+    <div class="job now">
+      <h3>Invisio</h3>
+      <p class="meta">Sales Coordinator, Sales Support</p>
+      <p>Grew from day-to-day sales support into improvement work across price lists, product data, tenders and an AI support agent.</p>
+    </div>
+    <div class="job">
+      <h3>Hemmersbach</h3>
+      <p class="meta">Project delivery management</p>
+      <p>Led projects at a large IT services company and automated manual work, cutting personnel costs by 18% on one of them.</p>
+    </div>
+    <div class="job">
+      <h3>Health and Iasis</h3>
+      <p class="meta">Technical sales, medical equipment</p>
+      <p>Built a CRM that replaced paper records and helped win the largest orthopaedic hospital in Greece.</p>
+    </div>
+  </div>
+  <div class="btns" style="margin:2rem 0 0"><a href="CV_Konstantinos_Marougkas.pdf" target="_blank" class="btn">Download CV</a></div>
+</div></section>
 
-<script>
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
+<section id="credentials" class="alt"><div class="wrap">
+  <h2>Credentials</h2>
+  <p class="intro">The formal training behind the hands-on work.</p>
+  <div class="grid">
+    <div class="card cred"><h4>Microsoft Azure AI Fundamentals (AI-900)</h4><p>Microsoft certification covering core AI and machine learning concepts and how Azure AI services apply them.</p></div>
+    <div class="card cred"><h4>AI Product Management</h4><p>Certification focused on defining, delivering and adopting AI products.</p></div>
+    <div class="card"><h4>Data analytics diploma</h4><p>Power BI, Python and SQL, applied in hands-on projects.</p></div>
+    <div class="card"><h4>Master's in mechanical and aerospace engineering</h4><p>The technical foundation for structured problem solving.</p></div>
+  </div>
+</div></section>
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX;
-    my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let's talk</h2>
+  <p>If you're improving a process, using data better or looking at where automation could help, I'd be glad to hear about it.</p>
+  <div class="btns">
+    <a href="mailto:marougkaskonstantinos@gmail.com" class="btn p">Send a message</a>
+    <a href="CV_Konstantinos_Marougkas.pdf" target="_blank" class="btn">Download CV</a>
+    <a href="https://www.linkedin.com/in/konstantinosmarougkas/" target="_blank" class="btn">LinkedIn</a>
+  </div>
+</div></section>
 
-  function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
-  }
-  animRing();
-
-  document.querySelectorAll('a, button, .story-card, .learning-tag').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.classList.add('hover');
-      ring.classList.add('hover');
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.classList.remove('hover');
-      ring.classList.remove('hover');
-    });
-  });
-
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        revealObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => revealObs.observe(el));
-
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const activeObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => {
-          a.style.color = a.getAttribute('href') === '#' + entry.target.id ? 'var(--amber)' : '';
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-  sections.forEach(s => activeObs.observe(s));
-</script>
+<footer>© 2026 Konstantinos Marougkas</footer>
 </body>
 </html>
